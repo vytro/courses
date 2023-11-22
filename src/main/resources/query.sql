@@ -24,3 +24,10 @@ alter table book add constraint FK_Book_RefStudent foreign key (student_id)
     references student (id) on delete restrict on update restrict;
 
 create sequence book_sequence as integer increment by 1;
+
+
+-- eager fetch
+-- select b.*,s.*
+-- from book b
+--          left join student s on b.student_id = s.id
+-- where b.id = 1;
