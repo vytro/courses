@@ -69,6 +69,7 @@ public class CoursesApplication implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		studentRepository.save(new Student("Andres", "Guzman", "amerida@gmail.com", 37));
+//		adding rows to the database
+//		studentRepository.save(new Student("Andres", "Guzman", "amerida@gmail.com", 37));
 	}
 }
