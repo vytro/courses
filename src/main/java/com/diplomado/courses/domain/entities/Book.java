@@ -1,6 +1,9 @@
 package com.diplomado.courses.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "book")
@@ -19,13 +22,19 @@ public class Book {
     private Integer id;
 
     private String name;
-    @ManyToOne(fetch = FetchType.LAZY)
+//    jsonignore to use lazy instead of eager
+//    @JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
-    public Book(String name, Student student) {
+    @Column(name = "created_at", columnDefinition = "TIMESTAMP")
+    private LocalDateTime createdAt;
+
+    public Book(String name, LocalDateTime createdAt, Student student) {
         this.name = name;
         this.student = student;
+        this.createdAt = createdAt;
     }
 
     public Book() {
@@ -53,5 +62,13 @@ public class Book {
 
     public void setStudent(Student student) {
         this.student = student;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

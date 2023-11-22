@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/students")
@@ -18,7 +19,7 @@ public class StudentController {
     }
 
     @GetMapping
-    public ResponseEntity<?> listStudents() {
+    public ResponseEntity<List<Student>> listStudents() {
         return ResponseEntity.ok().body(studentService.listStudents());
     }
 
