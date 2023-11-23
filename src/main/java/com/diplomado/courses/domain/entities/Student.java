@@ -34,6 +34,11 @@ public class Student {
     private String email;
     private Integer age;
 
+    @OneToOne(mappedBy = "student",
+              cascade = CascadeType.ALL,
+              fetch = FetchType.LAZY)
+    private StudentIdCard studentIdCard;
+
     public Student() {
     }
 
@@ -82,6 +87,25 @@ public class Student {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public StudentIdCard getStudentIdCard() {
+        return studentIdCard;
+    }
+
+    public void setStudentIdCard(StudentIdCard studentIdCard) {
+        this.studentIdCard = studentIdCard;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
 

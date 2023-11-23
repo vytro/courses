@@ -71,4 +71,14 @@ public class Book {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", student=" + student +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }

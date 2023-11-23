@@ -68,4 +68,16 @@ alter table enrollment add constraint FK_Enrollment_Ref_Student foreign key (cou
 ALTER TABLE book ADD COLUMN created_at timestamp;
 
 
+-- brand dto
 
+create table student_id_card(
+    id bigint not null,
+    card_number varchar(100) not null,
+    student_id int,
+    primary key (id)
+);
+
+alter table student_id_card add constraint fk_student_id_card_ref_student foreign key (student_id)
+    references student (id) on delete restrict on update restrict;
+
+create sequence my_sequence as integer increment 1;
