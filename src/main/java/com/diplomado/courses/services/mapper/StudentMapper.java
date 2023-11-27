@@ -39,7 +39,12 @@ public class StudentMapper implements CustomMapper<StudentDTO, Student>{
         dto.setEmail(student.getEmail());
         dto.setAge(student.getAge());
 
-        dto.setCardNumber(student.getStudentIdCard().getCardNumber());
+        if(student.getStudentIdCard() != null){
+            dto.setCardNumber(student.getStudentIdCard().getCardNumber());
+        }else{
+            dto.setCardNumber("Not assigned yet");
+        }
+//        dto.setCardNumber(student.getStudentIdCard().getCardNumber());
         return dto;
     }
 }
