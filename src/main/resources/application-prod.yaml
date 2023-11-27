@@ -1,0 +1,16 @@
+server:
+  port: 8298
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/prod_test
+    username: postgres
+    password: 1234
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: update
+#  application:
+#    name:
